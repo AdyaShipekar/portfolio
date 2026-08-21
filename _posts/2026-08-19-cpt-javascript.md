@@ -227,21 +227,22 @@ DISPLAY("Your grade is: " + grade)
 
 JavaScript
 {% capture js_selection_code %}
-score = (input("Grade: 0 - 100")
-grade = "Unknown"
+const score = Number(prompt("Grade: 0 - 100"));
+let grade = "Unknown";
 
-if score >= 90:
-    grade = "A"
-elif score >= 80:
-    grade = "B"
-elif score >= 70:
-    grade = "C"
-elif score >= 60:
-    grade = "D"
-else:
-    grade = "F"
+if (score >= 90) {
+  grade = "A";
+} else if (score >= 80) {
+  grade = "B";
+} else if (score >= 70) {
+  grade = "C";
+} else if (score >= 60) {
+  grade = "D";
+} else {
+  grade = "F";
+}
 
-print("Your grade is: " + grade)
+console.log("Your grade is: " + grade);
 {% endcapture %}
 
 {% include runners/code.html

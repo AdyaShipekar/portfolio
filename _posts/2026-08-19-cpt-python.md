@@ -230,7 +230,7 @@ DISPLAY("Your grade is: " + grade)
 
 Python
 {% capture py_selection_code %}
-score = input("Grade: 0 - 100")
+score = int(input("Grade: 0 - 100"))
 grade = "Unknown"
 
 if score >= 90:
