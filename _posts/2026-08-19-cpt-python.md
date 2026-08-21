@@ -4,7 +4,7 @@ title: Python CPT
 description: PYTHON CPT
 breadcrumb: true
 codemirror: true
-permalink: /cpt/concepts/pythonn
+permalink: /cpt/concepts/python
 ---
 
 ### 1. Output
@@ -660,3 +660,70 @@ else:
   code=py_boolean_code
   height="360px"
 %}
+
+<script>
+(function () {
+  var _pyReady = null;
+
+  function getPyodide() {
+    if (!_pyReady) {
+      _pyReady = new Promise(function (resolve, reject) {
+        var s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js';
+        s.onload = function () {
+          loadPyodide().then(function (py) {
+            py.runPython(
+              'import sys\n' +
+              'from js import prompt as _prompt\n' +
+              'class _Stdin:\n' +
+              '    def readline(self):\n' +
+              '        r = _prompt("Input:")\n' +
+              '        return ("" if r is None else r) + "\\n"\n' +
+              'sys.stdin = _Stdin()'
+            );
+            resolve(py);
+          }).catch(reject);
+        };
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    }
+    return _pyReady;
+  }
+
+  function patchPyRunners() {
+    document.querySelectorAll('.code-runner-container').forEach(function (container) {
+      var sel = container.querySelector('.languageSelect');
+      if (!sel || sel.value !== 'python') return;
+      var btn = container.querySelector('.runBtn');
+      if (!btn) return;
+      var newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+      newBtn.addEventListener('click', async function () {
+        var cm = container.querySelector('.CodeMirror') && container.querySelector('.CodeMirror').CodeMirror;
+        if (!cm) return;
+        var code = cm.getValue();
+        var outEl = container.querySelector('.output-content');
+        var etEl  = container.querySelector('.execTime');
+        outEl.textContent = '⏳ Loading Python runtime…';
+        if (etEl) etEl.textContent = '';
+        var t0 = Date.now();
+        try {
+          var py = await getPyodide();
+          var lines = [];
+          py.setStdout({ batched: function (s) { lines.push(s); } });
+          outEl.textContent = '⏳ Running…';
+          await py.runPythonAsync(code);
+          outEl.textContent = lines.join('\n') || '[no output]';
+          if (etEl) etEl.textContent = '⏱ Execution time: ' + (Date.now() - t0) + 'ms';
+        } catch (e) {
+          outEl.textContent = 'Error: ' + e.message;
+          if (etEl) etEl.textContent = '';
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', patchPyRunners);
+})();
+</script>

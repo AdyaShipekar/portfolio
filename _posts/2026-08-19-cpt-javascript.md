@@ -4,7 +4,7 @@ title: JavaScript CPT
 description: JAVASCRIPT CPT
 breadcrumb: true
 codemirror: true
-permalink: /cpt/concepts/javascriptt
+permalink: /cpt/concepts/javascript
 ---
 
 ### 1. Output
@@ -664,3 +664,40 @@ if (result > 0) {
   code=js_boolean_code
   height="360px"
 %}
+
+<script>
+(function () {
+  function patchJsRunners() {
+    document.querySelectorAll('.code-runner-container').forEach(function (container) {
+      var sel = container.querySelector('.languageSelect');
+      if (!sel || sel.value !== 'javascript') return;
+      var btn = container.querySelector('.runBtn');
+      if (!btn) return;
+      var newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+      newBtn.addEventListener('click', function () {
+        var cm = container.querySelector('.CodeMirror') && container.querySelector('.CodeMirror').CodeMirror;
+        if (!cm) return;
+        var code = cm.getValue();
+        var outEl = container.querySelector('.output-content');
+        var etEl  = container.querySelector('.execTime');
+        outEl.textContent = '⏳ Running…';
+        if (etEl) etEl.textContent = '';
+        var t0 = Date.now(), logs = [], origLog = console.log;
+        console.log = function () { logs.push(Array.from(arguments).map(String).join(' ')); origLog.apply(console, arguments); };
+        try {
+          eval(code);
+          console.log = origLog;
+          outEl.textContent = logs.length ? logs.join('\n') : '[no output]';
+          if (etEl) etEl.textContent = '⏱ Execution time: ' + (Date.now() - t0) + 'ms';
+        } catch (e) {
+          console.log = origLog;
+          outEl.textContent = 'Error: ' + e.message;
+          if (etEl) etEl.textContent = '';
+        }
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', patchJsRunners);
+})();
+</script>
