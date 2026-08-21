@@ -1,0 +1,112 @@
+---
+layout: post
+title: Music Project - CPT Concepts
+description: Our InTune, a music selector based on mood, age group, and other criteria.
+category: Gamify
+breadcrumb: true
+permalink: /cpt/concepts/javascript
+---
+
+In Pseudo Code: 
+
+```text
+DISPLAY("Music Recommendation System")
+
+songs ← ["Happier by Bastille", "Focused Lofi Beats", "Last Man Standing by Livingston", "Shake It Off by Taylor Swift"]
+effects ← ["Improve mood", "Focus", "Calm down", "Become energized"]
+lyrics ← ["yes", "no", "no", "yes"]
+
+desiredEffect ← INPUT("What do you want to do?")
+avoidLyrics ← INPUT("Avoid lyrics? (yes/no)")
+
+index ← 1
+found ← false
+
+FOR EACH effect IN effects
+{
+    IF (effect = desiredEffect)
+    {
+        IF (avoidLyrics = "no" OR lyrics[index] = "no")
+        {
+            DISPLAY("Recommended song: " + songs[index])
+            found ← true
+        }
+    }
+
+    index ← index + 1
+}
+
+IF (found = false)
+{
+    DISPLAY("No matching song found")
+}
+```
+
+In Python:
+
+```python
+print("Music Recommendation System")
+
+songs = ["Happier by Bastille", "Focused Lofi Beats", "Last Man Standing by Livingston", "Shake It Off by Taylor Swift"]
+effects = [
+    "Improve mood",
+    "Focus",
+    "Calm down",
+    "Become energized"
+]
+lyrics = ["yes", "no", "no", "yes"]
+
+desiredEffect = input("What do you want to do? ")
+avoidLyrics = input("Avoid lyrics? (yes/no) ")
+
+index = 0
+found = False
+
+for effect in effects:
+    if effect == desiredEffect:
+        if avoidLyrics == "no" or lyrics[index] == "no":
+            print("Recommended song: " + songs[index])
+            found = True
+
+    index = index + 1
+
+if found == False:
+    print("No matching song found")
+```
+
+In JavaScript:
+```javascript
+console.log("Music Recommendation System");
+
+let songs = ["Happier by Bastille", "Focused Lofi Beats", "Last Man Standing by Livingston", "Shake It Off by Taylor Swift"];
+
+let effects = [
+    "Improve mood",
+    "Focus",
+    "Calm down",
+    "Become energized"
+];
+
+let lyrics = ["yes", "no", "no", "yes"];
+
+let desiredEffect = prompt("What do you want to do?");
+let avoidLyrics = prompt("Avoid lyrics? (yes/no)");
+
+let index = 0;
+let found = false;
+
+for (let effect of effects) {
+    if (effect === desiredEffect) {
+        if (avoidLyrics === "no" || lyrics[index] === "no") {
+            console.log("Recommended song: " + songs[index]);
+            found = true;
+        }
+    }
+
+    index = index + 1;
+}
+
+if (found === false) {
+    console.log("No matching song found");
+}
+```
