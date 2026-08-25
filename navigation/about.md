@@ -120,7 +120,7 @@ Education:
 
 - There are 3 people in my family: my and my parents
 - I have no siblings but LOTS of cousins!
-- I own a bird named Frosty and a fish named Ruby
+- I own a pet lovebird named Mango
 - I love spending time with my family!
 
 
@@ -133,6 +133,8 @@ Pictures of My Family, scroll to the right for more ...
   <img src="{{site.baseurl}}/images/Pics/IMG_5463.jpg" alt="Image 3">
   <img src="{{site.baseurl}}/images/Pics/IMG_3700.jpg" alt="Image 4">
   <img src="{{site.baseurl}}/images/Pics/IMG_3447.jpg" alt="Image 5">
+  <img src="{{site.baseurl}}/images/Pics/IMG_9263.jpg" alt="Image 6">
+
 </div>
 
 ### Hobbies and Interests
