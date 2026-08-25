@@ -26,6 +26,11 @@ Some pictures of me:
 
 I've lived in California my whole life: I was born in Los Angeles and moved to San Diego. I visit India a lot, since some of my family members live there!
 
+Some other places I've visited:
+- Mexico (Cancun, Puerto Vallarta, Cabo San Lucas)
+- Puerto Rico
+- Costa Rica
+
 <style>
     /* Style looks pretty compact, 
        - grid-container and grid-item are referenced the code 
@@ -75,6 +80,9 @@ I've lived in California my whole life: I was born in Los Angeles and moved to S
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "greeting": "born in Los Angeles", "description": "California - forever"},
         {"flag": "4/41/Flag_of_India.svg", "greeting": "nationality: Indian", "description": "India 🇮🇳"}
+        {"flag": "8/8d/Flag_of_Mexico.svg", "greeting": "visited Mexico", "description": "Mexico 🇲🇽"},
+        {"flag": "2/28/Flag_of_Puerto_Rico.svg", "greeting": "visited Puerto Rico", "description": "Puerto Rico 🇵🇷"},
+        {"flag": "6/63/Flag_of_Costa_Rica.svg", "greeting": "visited Costa Rica", "description": "Costa Rica 🇨🇷"}
     ];
 
     // 3a. Consider how to update style count for size of container
