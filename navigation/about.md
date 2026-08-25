@@ -80,9 +80,9 @@ Some other places I've visited:
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "greeting": "born in Los Angeles", "description": "California - forever"},
         {"flag": "4/41/Flag_of_India.svg", "greeting": "nationality: Indian", "description": "India 🇮🇳"},
-        {"flag": "8/8d/Flag_of_Mexico.svg", "greeting": "visited Mexico", "description": "Mexico 🇲🇽"},
+        {"flag": "f/fc/Flag_of_Mexico.svg", "greeting": "visited Mexico", "description": "Mexico 🇲🇽"},
         {"flag": "2/28/Flag_of_Puerto_Rico.svg", "greeting": "visited Puerto Rico", "description": "Puerto Rico 🇵🇷"},
-        {"flag": "6/63/Flag_of_Costa_Rica.svg", "greeting": "visited Costa Rica", "description": "Costa Rica 🇨🇷"}
+        {"flag": "f/f2/Flag_of_Costa_Rica.svg", "greeting": "visited Costa Rica", "description": "Costa Rica 🇨🇷"}
     ];
 
     // 3a. Consider how to update style count for size of container
