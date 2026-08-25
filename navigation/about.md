@@ -79,7 +79,7 @@ Some other places I've visited:
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "greeting": "born in Los Angeles", "description": "California - forever"},
-        {"flag": "4/41/Flag_of_India.svg", "greeting": "nationality: Indian", "description": "India 🇮🇳"}
+        {"flag": "4/41/Flag_of_India.svg", "greeting": "nationality: Indian", "description": "India 🇮🇳"},
         {"flag": "8/8d/Flag_of_Mexico.svg", "greeting": "visited Mexico", "description": "Mexico 🇲🇽"},
         {"flag": "2/28/Flag_of_Puerto_Rico.svg", "greeting": "visited Puerto Rico", "description": "Puerto Rico 🇵🇷"},
         {"flag": "6/63/Flag_of_Costa_Rica.svg", "greeting": "visited Costa Rica", "description": "Costa Rica 🇨🇷"}
@@ -141,7 +141,7 @@ Pictures of My Family, scroll to the right for more ...
   <img src="{{site.baseurl}}/images/Pics/IMG_5463.jpg" alt="Image 3">
   <img src="{{site.baseurl}}/images/Pics/IMG_3700.jpg" alt="Image 4">
   <img src="{{site.baseurl}}/images/Pics/IMG_3447.jpg" alt="Image 5">
-  <img src="{{site.baseurl}}/images/Pics/IMG_9263.jpg" alt="Image 6">
+  <img src="{{site.baseurl}}/images/Pics/IMG_9623.jpg" alt="Image 6">
 
 </div>
 
