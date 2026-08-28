@@ -20,7 +20,7 @@ Some pictures of me:
 <br>
 - Age: 14
 - Birthday: June 1st
-- Favorite Color: Red
+- Favorite Color: Blue
 
 ### Locations
 
