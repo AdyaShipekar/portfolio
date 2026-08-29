@@ -18,9 +18,9 @@ Some pictures of me:
   <img src="{{site.baseurl}}/images/Pics/me_watermelon.jpg" alt="Image 5">
 </div>
 <br>
-- Age: 14
+- Age: 15
 - Birthday: June 1st
-- Favorite Color: Blue
+- Favorite Color: Red
 
 ### Locations
 
