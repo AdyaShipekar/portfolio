@@ -1,3 +1,26 @@
+const PYODIDE_VERSION = '0.26.4';
+let pyodidePromise = null;
+
+// Load Pyodide once per page and share it across all runners
+function loadPyodideOnce() {
+  if (!pyodidePromise) {
+    pyodidePromise = new Promise((resolve, reject) => {
+      const indexURL = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/`;
+      const start = () => window.loadPyodide({ indexURL }).then(resolve, reject);
+      if (window.loadPyodide) return start();
+      const script = document.createElement('script');
+      script.src = `${indexURL}pyodide.js`;
+      script.onload = start;
+      script.onerror = () => reject(new Error('failed to load Pyodide'));
+      document.head.appendChild(script);
+    }).catch((err) => {
+      pyodidePromise = null;
+      throw err;
+    });
+  }
+  return pyodidePromise;
+}
+
 export class CodeExecutor {
   constructor({ editor, outputElement, execTimeElement, languageSelect, pythonURI, javaURI, fetchOptions = {} } = {}) {
     this.editor = editor;
@@ -48,12 +71,41 @@ export class CodeExecutor {
         execTimeSpan.textContent = `⏱Execution time: ${Date.now() - startTime}ms`;
       }
     } catch (err) {
-      if (lang === 'javascript' && isLocalhost) {
+      // Backend unreachable (not running locally, or CORS-blocked) — run in the browser instead
+      if (lang === 'javascript') {
         this.runJavaScriptFallback(code, startTime);
+      } else if (lang === 'python') {
+        await this.runPythonFallback(code, startTime);
       } else {
         outputDiv.textContent = 'Error: ' + err.message;
         if (execTimeSpan) execTimeSpan.textContent = '';
       }
+    }
+  }
+
+  async runPythonFallback(code, startTime) {
+    const outputDiv = this.outputElement;
+    const execTimeSpan = this.execTimeElement;
+    outputDiv.textContent = '⏳ Running in browser...';
+
+    try {
+      const pyodide = await loadPyodideOnce();
+      const lines = [];
+      pyodide.setStdout({ batched: (line) => lines.push(line) });
+      pyodide.setStderr({ batched: (line) => lines.push(line) });
+      try {
+        // Fresh namespace per run so runners don't share variables
+        await pyodide.runPythonAsync(code, { globals: pyodide.globals.get('dict')() });
+      } catch (pyErr) {
+        lines.push(String(pyErr.message || pyErr).trim());
+      }
+      outputDiv.textContent = lines.length > 0 ? lines.join('\n') : '[no output]';
+      if (execTimeSpan) {
+        execTimeSpan.textContent = `⏱Execution time: ${Date.now() - startTime}ms (browser)`;
+      }
+    } catch (loadErr) {
+      outputDiv.textContent = 'Error: could not reach code server or load in-browser Python (' + loadErr.message + ')';
+      if (execTimeSpan) execTimeSpan.textContent = '';
     }
   }
 
