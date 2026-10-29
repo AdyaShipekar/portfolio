@@ -24,6 +24,8 @@ show_reading_time: false
     <a class="contact" href="mailto:adya.shipekar1@gmail.com">Get in touch</a>
   </div>
   <div class="portrait">
+    <span class="ring"></span>
+    <span class="ring alt"></span>
     <img src="{{ '/images/adya_headshot.jpg' | relative_url }}" alt="Adya Shipekar">
   </div>
 </header>
@@ -47,7 +49,7 @@ show_reading_time: false
       <h3>Imaging how cartilage changes under pressure</h3>
       <p>As part of a research team at the UCSD Cartilage and Tissue Engineering Lab, I helped develop an imaging approach to map cartilage composition and how it changes when the tissue is compressed, work aimed at better understanding joint health and disease.</p>
     </div>
-    <div class="ph" data-label="UCSD lab / poster session"></div>
+    <img class="photo lab" src="{{ '/images/ucsdctelab.jpg' | relative_url }}" alt="Adya pipetting samples at the UCSD Cartilage Tissue Engineering Lab">
   </div>
 </section>
 
@@ -67,19 +69,27 @@ show_reading_time: false
       <div>
         <h4 class="col-title">Leadership</h4>
         <ul class="record">
-          <li><span class="yr">2026–27</span><div><strong>CyberAegis, Vice President</strong><small>Manage a team of 5 networking leads</small></div></li>
+          <li><span class="yr">2026–now</span><div><strong>CyberAegis, Vice President</strong><small>Manage a team of 5 networking leads</small></div></li>
           <li><span class="yr">2025–26</span><div><strong>CyberAegis, Networking Lead</strong><small>Taught weekly networking classes to 120+ students</small></div></li>
           <li><span class="yr">2024–25</span><div><strong>CyberAegis, Middle School Public Representative</strong><small>Increased recruitment by 40% at Oak Valley Middle School</small></div></li>
           <li><span class="yr">2025–now</span><div><strong>CyberCEO, Secretary</strong><small>Security workshops for 600+ students and seniors</small></div></li>
         </ul>
       </div>
     </div>
-    <figure class="banner">
-      <div class="frame">
-        <img src="{{ '/images/cyberpatriotnats.jpg' | relative_url }}" alt="CyberPatriot National Finals">
-      </div>
-      <figcaption>Winners at the CyberPatriot 18 National Finals Awards Banquet</figcaption>
-    </figure>
+    <div class="banners">
+      <figure class="banner">
+        <div class="frame">
+          <img src="{{ '/images/cyberpatriotnats.jpg' | relative_url }}" alt="CyberPatriot National Finals">
+        </div>
+        <figcaption>Winners at the CyberPatriot 18 National Finals Awards Banquet</figcaption>
+      </figure>
+      <figure class="banner solo">
+        <div class="frame">
+          <img src="{{ '/images/cypatsolo.jpg' | relative_url }}" alt="Adya with the CyberPatriot 17 National Champion trophy">
+        </div>
+        <figcaption>CyberPatriot 17 National Finals, Awards Banquet</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -97,7 +107,7 @@ show_reading_time: false
         <dt>Volunteering</dt><dd>Helped run the blood drives hosted on our campus.</dd>
       </dl>
     </div>
-    <div class="ph" data-label="HOSA ILC / State Leadership Conference"></div>
+    <img class="photo" src="{{ '/images/hosailc.jpg' | relative_url }}" alt="Opening session of the HOSA International Leadership Conference">
   </div>
 </section>
 
@@ -111,7 +121,7 @@ show_reading_time: false
       <li><span class="yr">Bronze</span><div><strong>Write It Do It</strong><small>State</small></div></li>
       <li><span class="yr">Coach</span><div><strong>Oak Valley Middle School</strong><small>45 Codebusters students · test writer, Carmel Valley Invitational</small></div></li>
     </ul>
-    <div class="ph" data-label="Science Olympiad team / awards"></div>
+    <img class="photo" src="{{ '/images/sciolymedals.jpg' | relative_url }}" alt="Science Olympiad medals">
   </div>
 </section>
 
@@ -120,7 +130,6 @@ show_reading_time: false
   <div class="timeline">
     <div class="item reveal"><span class="yr">2025 – present</span><h4>Pi-Thon Club, Co-Founder &amp; Vice President</h4><p>Coding and math workshops for 400+ students from underrepresented communities</p></div>
     <div class="item reveal"><span class="yr">2025 – present</span><h4>iGEM, Software Team</h4><p>Built wikis, applications and computational models for a gold-medal team</p></div>
-    <div class="item reveal"><span class="yr">2026</span><h4>NCWIT Aspirations in Computing</h4><p>San Diego Rising Star</p></div>
     <div class="item reveal"><span class="yr">Ongoing</span><h4>Community</h4><p>EKAL Youth Ambassador · 4S Ranch Library volunteer (50+ hours) · All Girls STEM Society</p></div>
   </div>
 </section>
@@ -128,24 +137,39 @@ show_reading_time: false
 <section class="wrap">
   <div class="head"><h2>Beyond the Classroom</h2><p class="sub">Music, speaking and athletics</p></div>
   <div class="reveal">
-    <div class="cards">
-      <div class="card"><span class="big">Level 10</span><h4>Piano, since 2015</h4><p>Certificate of Merit; five-time State &amp; Convention Honors</p></div>
-      <div class="card"><span class="big">TEDx</span><h4>Del Sur, 2025</h4><p>Speaker and performer</p></div>
-      <div class="card"><span class="big">Team</span><h4>Speech &amp; Debate · Swim</h4><p>Junior Varsity Swim, 2026</p></div>
+    <div class="cards two">
+      <div class="card">
+        <span class="big">Piano</span>
+        <ul class="bullets">
+          <li>Level 10 Graduate, Certificate of Merit</li>
+          <li>Certificate of Merit 5x State &amp; Convention Honors</li>
+          <li>2026 American Virtuoso International Music Competition, Second Place</li>
+          <li>TEDx Del Sur 2025 Performer</li>
+        </ul>
+        <img class="photo" src="{{ '/images/piano.jpg' | relative_url }}" alt="Adya with a blue ribbon beside a grand piano">
+      </div>
+      <div class="card">
+        <span class="big">Other activities</span>
+        <ul class="bullets">
+          <li>Speech &amp; Debate (2025–present), competing in league and national tournaments</li>
+          <li>2nd Place, Varsity Parliamentary Debate, Speech &amp; Debate League Opener 2026</li>
+          <li>Junior Varsity Swim Team (2025–present)</li>
+        </ul>
+        <div class="ph" data-label="Speech &amp; Debate / Swim"></div>
+      </div>
     </div>
-    <div class="ph" data-label="Piano performance / TEDx Del Sur"></div>
   </div>
 </section>
 
 <footer class="footer">
-  <h3>Class work</h3>
+  <h3>Classwork</h3>
   <nav>
+    <a href="https://github.com/AdyaShipekar">GitHub</a>
     <a href="{{site.baseurl}}/code/javascript">JS Basics</a>
     <a href="{{site.baseurl}}/game/essentials/variables">JS Variables</a>
     <a href="{{site.baseurl}}/snake">Snake</a>
     <a href="{{site.baseurl}}/gamify">Gamify</a>
     <a href="{{site.baseurl}}/cs-pathway">CS Pathway</a>
-    <a href="https://github.com/Open-Coding-Society/portfolio">GitHub</a>
   </nav>
 </footer>
 

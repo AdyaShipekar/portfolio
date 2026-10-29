@@ -45,6 +45,17 @@ $img-border: 1.5px solid $blue;
   100% { transform: translateY(-5.6em); }
 }
 
+@keyframes morph {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  33% { border-radius: 63% 37% 41% 59% / 58% 36% 64% 42%; }
+  66% { border-radius: 38% 62% 52% 48% / 36% 59% 41% 64%; }
+}
+@keyframes morph-alt {
+  0%, 100% { border-radius: 58% 42% 38% 62% / 55% 62% 38% 45%; }
+  33% { border-radius: 40% 60% 57% 43% / 38% 52% 48% 62%; }
+  66% { border-radius: 61% 39% 46% 54% / 63% 41% 59% 37%; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes rise {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: none; }
@@ -121,13 +132,14 @@ $img-border: 1.5px solid $blue;
   // ---------- Hero ----------
   .hero {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 3rem;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
     align-items: center;
     padding: 5rem 4rem;
+    // glows sized to fade out fully before reaching the hero's edges
     background:
-      radial-gradient(circle at 80% 40%, rgba($violet-deep, 0.3), transparent 50%),
-      radial-gradient(circle at 0% 100%, rgba($blue, 0.1), transparent 45%),
+      radial-gradient(ellipse 25% 50% at 75% 50%, rgba($violet-deep, 0.35), transparent),
+      radial-gradient(ellipse 25% 35% at 25% 65%, rgba($blue, 0.08), transparent),
       $ink;
     @include bp { grid-template-columns: 1fr; padding: 3rem 1.25rem; gap: 2rem; }
 
@@ -208,20 +220,36 @@ $img-border: 1.5px solid $blue;
   }
 
   .portrait {
-    width: 300px;
-    height: 300px;
+    position: relative;
+    width: 380px;
+    height: 380px;
     justify-self: center;
-    border-radius: 50%;
-    padding: 5px;
-    border: $img-border;
-    @include bp { width: 220px; height: 220px; order: -1; justify-self: start; }
+    @include bp { width: 260px; height: 260px; order: -1; justify-self: start; margin: 22px; }
+
+    // two dashed rings that spin and wave around the photo, crossing each other
+    .ring {
+      position: absolute;
+      inset: -22px;
+      border-radius: 50%;
+      border: 2px dashed rgba($violet, 0.5);
+      animation: spin 30s linear infinite, morph 12s linear infinite;
+
+      &.alt {
+        inset: -12px;
+        border-color: rgba($blue, 0.45);
+        animation: spin 30s linear infinite reverse, morph-alt 12s linear infinite;
+      }
+    }
 
     img {
+      position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
       display: block;
+      border-radius: 50%;
+      border: $img-border;
+      box-shadow: 0 30px 80px rgba($violet-deep, 0.5);
     }
   }
 
@@ -283,6 +311,7 @@ $img-border: 1.5px solid $blue;
 
     .award { margin-bottom: 0; }
     .ph, .photo { height: auto; min-height: 0; aspect-ratio: #{"3 / 2"}; }
+    .photo.lab { object-position: 50% 35%; }
   }
 
   // ---------- Record lists (cyber, sci oly) ----------
@@ -323,6 +352,22 @@ $img-border: 1.5px solid $blue;
     .col-title { @include label($muted); margin-bottom: 1.25rem; }
   }
 
+  // banners sit side by side at equal height: each grows by its frame's aspect ratio
+  .banners {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+
+    > .banner { flex: 2.4976 1 0; min-width: 0; }
+    > .solo { flex: 0.4901 1 0; }
+
+    @include bp {
+      flex-direction: column;
+      > .banner { flex: none; width: 100%; }
+      > .solo { width: 60%; align-self: center; }
+    }
+  }
+
   .banner {
     margin: 0;
 
@@ -339,6 +384,18 @@ $img-border: 1.5px solid $blue;
       display: block;
       object-fit: cover;
       object-position: 50% 75%;
+    }
+    // portrait crop: drops left 20%, right 30%, top 10%
+    &.solo {
+      .frame { position: relative; aspect-ratio: #{"1460 / 2980"}; }
+      img {
+        position: absolute;
+        width: 200%;
+        height: 111.111%;
+        left: -40%;
+        top: -11.111%;
+        max-width: none;
+      }
     }
     figcaption {
       margin-top: 0.75rem;
@@ -395,8 +452,10 @@ $img-border: 1.5px solid $blue;
       }
     }
 
-    .ph { min-height: 320px; }
+    .ph, .photo { min-height: 320px; }
   }
+
+  .split .photo { height: auto; min-height: 0; align-self: center; }
 
   // ---------- Cards (beyond) ----------
   .cards {
@@ -422,10 +481,28 @@ $img-border: 1.5px solid $blue;
       }
       h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
       p { font-size: 0.88rem; @include ink($muted); }
+
+      .bullets {
+        margin: 0;
+        padding-left: 1.25rem;
+        font-size: 0.95rem;
+        @include ink($muted);
+
+        li { margin-bottom: 0.75rem; }
+      }
+    }
+
+    // two cards, each with text on top and a photo pinned to the bottom
+    &.two {
+      grid-template-columns: repeat(2, 1fr);
+      @include bp { grid-template-columns: 1fr; }
+
+      .card { display: flex; flex-direction: column; }
+      .ph, .photo { margin-top: auto; height: auto; min-height: 0; aspect-ratio: #{"4 / 3"}; }
+      > p, .bullets { margin-bottom: 1.25rem; }
+      .photo { object-position: 50% 70%; }
     }
   }
-
-  .cards + .ph { margin-top: 1.5rem; min-height: 200px; }
 
   // ---------- Leadership timeline ----------
   .timeline {
@@ -488,6 +565,6 @@ $img-border: 1.5px solid $blue;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .reveal, .rotator ul { animation: none !important; }
+    .reveal, .rotator ul, .portrait .ring { animation: none !important; }
   }
 }
