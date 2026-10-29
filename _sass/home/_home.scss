@@ -1,0 +1,493 @@
+// Home page styles (index.md), loaded via assets/css/home.scss
+
+// ---------- Tokens ----------
+$ink: #0c0b12;
+$ink-2: #13121b;
+$surface: #1a1824;
+$line: rgba(#fff, 0.08);
+$violet: #a78bfa;
+$violet-deep: #7c3aed;
+$blue: #60a5fa;
+$text: #ecebf3;
+$muted: #9a97aa;
+$sans: "Inter", system-ui, sans-serif;
+$mono: "JetBrains Mono", ui-monospace, monospace;
+$accent-grad: linear-gradient(90deg, $violet, $blue);
+$img-border: 1.5px solid $blue;
+
+@mixin bp($w: 760px) {
+  @media (max-width: $w) { @content; }
+}
+
+// theme forces heading/paragraph colors with !important, so colors on
+// text elements inside .home go through this mixin
+@mixin ink($c) { color: $c !important; }
+
+@mixin label($c: $violet) {
+  font-family: $mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  @include ink($c);
+}
+
+@mixin panel {
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: 12px;
+}
+
+@keyframes words {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-1.4em); }
+  50%, 70% { transform: translateY(-2.8em); }
+  75%, 95% { transform: translateY(-4.2em); }
+  100% { transform: translateY(-5.6em); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+// the hero already shows the name, so hide the layout's page title
+.post-header { display: none; }
+
+.home {
+  font-family: $sans;
+  color: $text;
+  background: $ink;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 1.6;
+  // break out of the narrow post column
+  width: calc(100vw - 48px);
+  max-width: 1200px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  @include bp { width: calc(100vw - 16px); border-radius: 14px; }
+
+  h1, h2, h3, h4, p, li {
+    @include ink(inherit);
+    font-family: $sans;
+    margin: 0;
+    padding: 0;
+    border: 0 !important;
+    text-shadow: none !important;
+  }
+  h1, h2, h3, h4, p { display: block; }
+  a { color: inherit; }
+
+  .wrap {
+    padding: 4.5rem 4rem;
+    border-top: 1px solid $line;
+    @include bp { padding: 3rem 1.25rem; }
+  }
+
+  .head {
+    margin-bottom: 2.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $line !important;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+      @include bp { font-size: 2.2rem; }
+    }
+    .sub { font-size: 1.15rem; @include ink($muted); }
+  }
+
+  // ---------- Photo placeholders ----------
+  .ph, .photo { width: 100%; height: 100%; min-height: 220px; border-radius: 12px; }
+  .photo { object-fit: cover; display: block; border: $img-border; }
+  .ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    background: $ink-2;
+    border: 1px dashed rgba($violet, 0.35);
+    font-size: 0.85rem;
+    color: $muted;
+
+    &::before { content: "Photo: "; color: $violet; margin-right: 0.3rem; }
+    &::after { content: attr(data-label); }
+  }
+
+  // ---------- Hero ----------
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 4rem;
+    background:
+      radial-gradient(circle at 80% 40%, rgba($violet-deep, 0.3), transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba($blue, 0.1), transparent 45%),
+      $ink;
+    @include bp { grid-template-columns: 1fr; padding: 3rem 1.25rem; gap: 2rem; }
+
+    .label { @include label($blue); margin-bottom: 1rem; }
+
+    h1 {
+      font-size: 4.25rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.25rem;
+      @include ink(#fff);
+      @include bp { font-size: 2.8rem; }
+    }
+
+    .rotator {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4em;
+      // same line box for "I'm a" and the changing word so they sit on one baseline
+      line-height: 1.4em;
+      font-size: 1.5rem;
+      font-weight: 500;
+      white-space: nowrap;
+      margin-bottom: 1.25rem;
+      @include ink($muted);
+      @include bp { font-size: 1.15rem; }
+
+      .window { height: 1.4em; overflow: hidden; display: inline-block; }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        animation: words 10s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+
+        li {
+          height: 1.4em;
+          line-height: 1.4em;
+          margin: 0 !important;
+          font-weight: 600;
+          background: $accent-grad;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent !important;
+        }
+      }
+    }
+
+    .lede {
+      font-size: 1.2rem;
+      max-width: 34rem;
+      @include ink($muted);
+      margin-bottom: 2rem;
+    }
+
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      font-size: 0.9rem;
+      @include ink($muted);
+      b { color: $text; font-weight: 600; }
+    }
+
+    .contact {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      background: $violet-deep;
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      &:hover { background: darken($violet-deep, 8%); }
+    }
+  }
+
+  .portrait {
+    width: 300px;
+    height: 300px;
+    justify-self: center;
+    border-radius: 50%;
+    padding: 5px;
+    border: $img-border;
+    @include bp { width: 220px; height: 220px; order: -1; justify-self: start; }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // ---------- Stats strip ----------
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid $line;
+    @include bp { grid-template-columns: repeat(2, 1fr); }
+
+    div {
+      padding: 2rem 2.25rem;
+      border-right: 1px solid $line;
+      &:last-child { border-right: 0; }
+      @include bp {
+        padding: 1.5rem 1.25rem;
+        &:nth-child(2n) { border-right: 0; }
+        &:nth-child(-n+2) { border-bottom: 1px solid $line; }
+      }
+    }
+    b {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      background: $accent-grad;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    span { font-size: 0.85rem; color: $muted; }
+  }
+
+  // ---------- Research ----------
+  .head + .project { border-top: 0; padding-top: 0; }
+  .project {
+    padding: 3rem 0;
+    border-top: 1px solid $line;
+
+    .kicker { @include label($blue); margin-bottom: 0.75rem; }
+    h3 { font-size: 1.75rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 46rem; }
+    p { @include ink($muted); font-size: 1.05rem; max-width: 46rem; margin-bottom: 1.25rem; }
+
+    .award {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba($violet, 0.5);
+      color: $violet;
+      margin-bottom: 1.75rem;
+    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    @include bp { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    .award { margin-bottom: 0; }
+    .ph, .photo { height: auto; min-height: 0; aspect-ratio: #{"3 / 2"}; }
+  }
+
+  // ---------- Record lists (cyber, sci oly) ----------
+  .split {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    @include bp { grid-template-columns: 1fr; }
+  }
+
+  .record {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid $line !important;
+      &:first-child { padding-top: 0; }
+
+      .yr { font-family: $mono; font-size: 0.8rem; color: $violet; padding-top: 0.15rem; }
+      strong { display: block; font-weight: 600; }
+      small { color: $muted; font-size: 0.88rem; }
+    }
+  }
+
+  // ---------- Cybersecurity ----------
+  .record-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    @include bp { grid-template-columns: 1fr; gap: 2rem; }
+
+    .col-title { @include label($muted); margin-bottom: 1.25rem; }
+  }
+
+  .banner {
+    margin: 0;
+
+    // wide photo cropped to the middle of the image (drops top 30%, bottom 10%)
+    .frame {
+      border-radius: 12px;
+      overflow: hidden;
+      border: $img-border;
+      aspect-ratio: #{"2048 / 820"};
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: 50% 75%;
+    }
+    figcaption {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: $muted;
+      text-align: center;
+    }
+  }
+
+  // ---------- HOSA ----------
+  .hosa {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    @include bp { grid-template-columns: 1fr; gap: 2rem; }
+
+    .placings {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 3rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid $line;
+
+      b {
+        display: block;
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 0.5rem;
+        background: $accent-grad;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      span { display: block; font-weight: 600; }
+      small { color: $muted; font-size: 0.88rem; }
+    }
+
+    .points {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 1.25rem 1.5rem;
+      margin: 0;
+      @include bp { grid-template-columns: 1fr; gap: 0.25rem; }
+
+      dt { @include label($violet); padding-top: 0.3rem; }
+      dd {
+        margin: 0;
+        color: $text;
+        @include bp { margin-bottom: 1rem; }
+      }
+    }
+
+    .ph { min-height: 320px; }
+  }
+
+  // ---------- Cards (beyond) ----------
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    @include bp { grid-template-columns: 1fr; }
+
+    .card {
+      @include panel;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+      &:hover { border-color: rgba($violet, 0.5); }
+
+      .big {
+        font-size: 1.9rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: $violet;
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+      h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+      p { font-size: 0.88rem; @include ink($muted); }
+    }
+  }
+
+  .cards + .ph { margin-top: 1.5rem; min-height: 200px; }
+
+  // ---------- Leadership timeline ----------
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid rgba($violet, 0.4) !important;
+
+    .item {
+      position: relative;
+      padding-bottom: 2rem;
+      &:last-child { padding-bottom: 0; }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: calc(-2rem - 5px);
+        top: 0.45rem;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: $violet;
+        box-shadow: 0 0 0 4px $ink;
+      }
+
+      .yr { font-family: $mono; font-size: 0.75rem; color: $blue; }
+      h4 { font-size: 1.05rem; font-weight: 600; margin: 0.15rem 0; }
+      p { font-size: 0.9rem; @include ink($muted); }
+    }
+  }
+
+  // ---------- Footer ----------
+  .footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid $line;
+    background: $ink-2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+    @include bp { padding: 2rem 1.25rem; }
+
+    h3 { @include label($muted); margin-right: auto; }
+    nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+    a {
+      font-size: 0.88rem;
+      text-decoration: none;
+      @include ink($text);
+      transition: color 0.2s;
+      &:hover { @include ink($violet); }
+    }
+  }
+
+  // ---------- Subtle scroll fade-in ----------
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .rotator ul { animation: none !important; }
+  }
+}
