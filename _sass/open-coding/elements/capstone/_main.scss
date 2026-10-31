@@ -1,0 +1,53 @@
+// Subset of the Open Coding Society document primitives
+// (upstream: pages/_sass/open-coding/elements/capstone/_main.scss).
+// Only the classes the SASS lessons use.
+
+.ocs__card {
+  background: var(--panel);
+  border: 1px solid var(--ui-border);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--pref-text-color);
+}
+
+.ocs__section-title {
+  margin: 0 0 1rem;
+  color: var(--pref-text-color);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+// Outrank generic page typography for compact section headings.
+.ocs__card > h2.ocs__section-title,
+.ocs__card > h3.ocs__section-title,
+.ocs__container > h2.ocs__section-title {
+  font-size: 0.875rem;
+}
+
+.ocs__description {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.ocs__lead {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  max-width: 70ch;
+}
+
+.ocs__callout {
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--ui-border);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--pref-text-color) 5%, var(--panel));
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}

@@ -8,3 +8,16 @@
 @import "open-coding/main";
 @import "lessonbase";
 @import "footer";
+
+// Containers homework: Poway gold page variant
+.ocs__container--poway-gold {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background-color: rgba(218, 165, 32, 0.08);
+  border-top: 4px solid rgba(218, 165, 32, 0.7);
+
+  * {
+    box-sizing: border-box;
+  }
+}

@@ -24,6 +24,25 @@
     border-radius: 999px;
 }
 
+.ocs__btn.accent {
+    --ocs-btn-tone: var(--pref-accent-color);
+    border-color: var(--pref-accent-color);
+    color: var(--pref-accent-color);
+}
+
+.ocs__btn.accent.fill {
+    background: var(--pref-accent-color);
+    color: var(--pref-bg-color);
+
+    &:hover,
+    &:focus,
+    &:active {
+        background: var(--pref-accent-color);
+        border-color: var(--pref-accent-color);
+        color: var(--pref-bg-color);
+    }
+}
+
 @each $name, $tone in $ocs-alert-buttons {
     .ocs__btn.alert-#{$name} {
         --ocs-btn-tone: #{$tone};
