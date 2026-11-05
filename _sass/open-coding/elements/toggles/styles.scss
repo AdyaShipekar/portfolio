@@ -37,3 +37,83 @@ $transitionTime: 0.4s;
         transition: $transitionTime;
     }
 }
+
+// OCS toggle grammar
+// <label class="ocs__toggle ocs__toggle--green">
+//   <input class="ocs__toggle-input" type="checkbox">
+//   <span class="ocs__toggle-track" aria-hidden="true"></span>
+//   <span class="ocs__toggle-label">Label</span>
+// </label>
+.ocs__toggle {
+    // Color of the track when on; override inline with style="--ocs-toggle-on: #8B5CF6"
+    --ocs-toggle-on: #{$blue1};
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ocs__toggle--green {
+    --ocs-toggle-on: #22C55E;
+}
+
+// The checkbox holds the on/off state but is visually hidden
+.ocs__toggle-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+// The visible track
+.ocs__toggle-track {
+    position: relative;
+    flex-shrink: 0;
+    width: 54px;
+    height: 31px;
+    border-radius: 100px;
+    background: $gray4;
+    transition: background $transitionTime;
+
+    // The white knob
+    &::before {
+        content: "";
+        position: absolute;
+        width: 27px;
+        height: 27px;
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.04),
+            0px 3px 8px 0px rgba(0, 0, 0, 0.15),
+            0px 3px 1px 0px rgba(0, 0, 0, 0.06);
+        transition: transform $transitionTime;
+    }
+}
+
+.ocs__toggle-input:checked + .ocs__toggle-track {
+    background: var(--ocs-toggle-on);
+
+    &::before {
+        transform: translateX(23px);
+    }
+}
+
+.ocs__toggle-input:focus-visible + .ocs__toggle-track {
+    outline: 2px solid var(--ocs-toggle-on);
+    outline-offset: 2px;
+}
+
+.ocs__toggle-input:disabled + .ocs__toggle-track {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ocs__toggle-label {
+    font-size: 16px;
+    color: var(--pref-text-color, inherit);
+}
