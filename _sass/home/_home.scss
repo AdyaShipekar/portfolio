@@ -532,23 +532,24 @@ $img-border: 1.5px solid $blue;
       p { font-size: 0.9rem; @include ink($muted); }
       ul { margin: 0.4rem 0 0; padding-left: 1.25rem; font-size: 0.9rem; @include ink($muted); }
       li { margin-bottom: 0.5rem; }
-
-      // text on the left, two square photos stacked on the right
-      &.feature {
-        display: grid;
-        grid-template-columns: 1fr 220px;
-        gap: 2rem;
-        align-items: start;
-        @include bp { grid-template-columns: 1fr; gap: 1rem; }
-
-        .pics {
-          display: grid;
-          gap: 1rem;
-          @include bp { grid-template-columns: 1fr 1fr; }
-        }
-        .ph, .photo { height: auto; min-height: 0; aspect-ratio: #{"1 / 1"}; }
-      }
     }
+  }
+
+  // timeline on the left, EKAL photos stacked on the right,
+  // bottom-aligned so they sit beside the entries above EKAL too
+  .timeline-wrap {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 2rem;
+    align-items: end;
+    @include bp { grid-template-columns: 1fr; gap: 1rem; }
+
+    .pics {
+      display: grid;
+      gap: 1rem;
+      @include bp { grid-template-columns: 1fr 1fr; }
+    }
+    .photo { height: auto; min-height: 0; aspect-ratio: #{"1 / 1"}; }
   }
 
   // ---------- Footer ----------
