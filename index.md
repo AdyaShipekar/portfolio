@@ -40,7 +40,7 @@ show_reading_time: false
       <p>Diagnosing how severe knee osteoarthritis is depends on doctors reading X-rays by eye, and two doctors can disagree. I built a machine learning model that grades knee X-rays automatically and highlights the areas it based its decision on, so doctors can see its reasoning.</p>
       <span class="award">GSDSEF Silver Award</span>
     </div>
-    <div class="ph" data-label="Research poster / GSDSEF"></div>
+    <img class="photo" src="{{ '/images/gsdsefmlproject.png' | relative_url }}" alt="Knee osteoarthritis machine learning research poster at GSDSEF">
   </div>
 
   <div class="project reveal">
@@ -130,7 +130,21 @@ show_reading_time: false
   <div class="timeline">
     <div class="item reveal"><span class="yr">2025 – present</span><h4>Pi-Thon Club, Co-Founder &amp; Vice President</h4><p>Coding and math workshops for 400+ students from underrepresented communities</p></div>
     <div class="item reveal"><span class="yr">2025 – present</span><h4>iGEM, Software Team</h4><p>Built wikis, applications and computational models for a gold-medal team</p></div>
-    <div class="item reveal"><span class="yr">Ongoing</span><h4>Community</h4><p>EKAL Youth Ambassador · 4S Ranch Library volunteer (50+ hours) · All Girls STEM Society</p></div>
+    <div class="item reveal"><span class="yr">Ongoing</span><h4>Community</h4><p>4S Ranch Library volunteer (50+ hours) · All Girls STEM Society</p></div>
+    <div class="item reveal"><span class="yr">Ongoing</span><h4>San Diego Blood Bank, Volunteer</h4><p>30+ hours of volunteer service</p></div>
+    <div class="item feature reveal">
+      <div>
+        <span class="yr">Ongoing</span><h4>EKAL, Youth Ambassador</h4>
+        <ul>
+          <li>Emceed an event and raised over $30,000 to support digital literacy and education initiatives in rural villages across India</li>
+          <li>Won the 2026 Ekal Rising Seva Leader Award for my outreach efforts and dedication to Seva</li>
+        </ul>
+      </div>
+      <div class="pics">
+        <img class="photo" src="{{ '/images/ekal_event.jpg' | relative_url }}" alt="Adya emceeing the Ekal fundraising event">
+        <img class="photo" src="{{ '/images/ekal_award.jpg' | relative_url }}" alt="Adya receiving the 2026 Ekal Rising Seva Leader Award">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -155,7 +169,6 @@ show_reading_time: false
           <li>2nd Place, Varsity Parliamentary Debate, Speech &amp; Debate League Opener 2026</li>
           <li>Junior Varsity Swim Team (2025–present)</li>
         </ul>
-        <div class="ph" data-label="Speech &amp; Debate / Swim"></div>
       </div>
     </div>
   </div>
