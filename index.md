@@ -166,8 +166,13 @@ show_reading_time: false
       <div class="card">
         <span class="big">Other activities</span>
         <ul class="bullets">
-          <li>Speech &amp; Debate (2025–present), competing in league and national tournaments</li>
-          <li>2nd Place, Varsity Parliamentary Debate, Speech &amp; Debate League Opener 2026</li>
+          <li>Speech &amp; Debate (2025–present), competing in league and national tournaments
+            <ul>
+              <li>Top 10 at 2025 SDIVSL Debate League Opener, Public Forum Debate</li>
+              <li>2nd Place, Varsity Parliamentary Debate, SDIVSL Debate League Opener 2026</li>
+              <li>4th Place, Original Oratory, SDIVSL Speech League Opener 2026</li>
+            </ul>
+          </li>
           <li>Junior Varsity Swim Team (2025–present)</li>
         </ul>
       </div>
