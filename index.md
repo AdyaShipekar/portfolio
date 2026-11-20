@@ -36,8 +36,8 @@ show_reading_time: false
   <div class="project reveal">
     <div class="text">
       <p class="kicker">Independent project</p>
-      <h3>Machine learning for grading knee osteoarthritis</h3>
-      <p>Diagnosing how severe knee osteoarthritis is depends on doctors reading X-rays by eye, and two doctors can disagree. I built a machine learning model that grades knee X-rays automatically and highlights the areas it based its decision on, so doctors can see its reasoning.</p>
+      <h3>Integrative Machine Learning Framework for Diagnostic Modeling of Degenerative Joint Disease Severity</h3>
+      <p>Diagnosing how severe knee osteoarthritis is depends on doctors reading X-rays by eye, and two doctors can disagree. I built a machine learning model that accurately grades knee X-rays automatically and highlights the areas it based its decision on, so doctors can see its reasoning.</p>
       <span class="award">GSDSEF Silver Award</span>
     </div>
     <img class="photo" src="{{ '/images/gsdsefmlproject.png' | relative_url }}" alt="Knee osteoarthritis machine learning research poster at GSDSEF">
@@ -46,8 +46,8 @@ show_reading_time: false
   <div class="project reveal">
     <div class="text">
       <p class="kicker">UC San Diego · Cartilage Tissue Engineering Lab</p>
-      <h3>Imaging how cartilage changes under pressure</h3>
-      <p>As part of a research team at the UCSD Cartilage and Tissue Engineering Lab, I helped develop an imaging approach to map cartilage composition and how it changes when the tissue is compressed, work aimed at better understanding joint health and disease.</p>
+      <h3>Hexabrix-Enhanced Micro-Computed Tomography for Mapping Proteoglycan Distribution in Articular Cartilage Under Mechanical Compression</h3>
+      <p>As part of a research team at the UCSD Cartilage and Tissue Engineering Lab, I helped develop an imaging approach to map cartilage composition and how it changes when the tissue is compressed, work aimed at better understanding joint health and disease. Presented findings at the 2026 BMES (Biomedical Engineering Society) High School Poster Expo.</p>
     </div>
     <img class="photo lab" src="{{ '/images/ucsdctelab.jpg' | relative_url }}" alt="Adya pipetting samples at the UCSD Cartilage Tissue Engineering Lab">
   </div>
@@ -69,8 +69,8 @@ show_reading_time: false
       <div>
         <h4 class="col-title">Leadership</h4>
         <ul class="record">
-          <li><span class="yr">2026–now</span><div><strong>CyberAegis, Vice President</strong><small>Manage a team of 5 networking leads</small></div></li>
-          <li><span class="yr">2025–26</span><div><strong>CyberAegis, Networking Lead</strong><small>Taught weekly networking classes to 120+ students</small></div></li>
+          <li><span class="yr">2026–now</span><div><strong>CyberAegis, Vice President</strong><small>Manage a team of 5 Cisco networking leads</small></div></li>
+          <li><span class="yr">2025–26</span><div><strong>CyberAegis, Cisco Networking Lead</strong><small>Taught weekly networking classes to 120+ students</small></div></li>
           <li><span class="yr">2024–25</span><div><strong>CyberAegis, Middle School Public Representative</strong><small>Increased recruitment by 40% at Oak Valley Middle School</small></div></li>
           <li><span class="yr">2025–now</span><div><strong>CyberCEO, Secretary</strong><small>Security workshops for 600+ students and seniors</small></div></li>
         </ul>
@@ -102,6 +102,7 @@ show_reading_time: false
         <div><b>2nd</b><span>State Leadership Conference</span><small>Medical Terminology, 2026</small></div>
       </div>
       <dl class="points">
+        <dt>Charity</dt><dd>Gold medalist at the International Leadership Conference for Hilarity for Charity.</dd>
         <dt>Fundraising</dt><dd>Identified the need for an AED on campus and helped raise funds through student-led fundraising.</dd>
         <dt>HOSA Week</dt><dd>Organized HOSA Week at Del Norte High School.</dd>
         <dt>Volunteering</dt><dd>Helped run the blood drives hosted on our campus.</dd>
@@ -119,7 +120,7 @@ show_reading_time: false
       <li><span class="yr">Silver</span><div><strong>Codebusters</strong><small>State · 3× Regional Gold</small></div></li>
       <li><span class="yr">Silver</span><div><strong>Anatomy &amp; Physiology</strong><small>State Silver and Bronze</small></div></li>
       <li><span class="yr">Bronze</span><div><strong>Write It Do It</strong><small>State</small></div></li>
-      <li><span class="yr">Coach</span><div><strong>Oak Valley Middle School</strong><small>45 Codebusters students · test writer, Carmel Valley Invitational</small></div></li>
+      <li><span class="yr">Coach</span><div><strong>Oak Valley Middle School</strong><small>45 Codebusters students · test writer, Carmel Valley Invitational and Oak Valley Invitational</small></div></li>
     </ul>
     <img class="photo" src="{{ '/images/sciolymedals.jpg' | relative_url }}" alt="Science Olympiad medals">
   </div>
@@ -132,12 +133,12 @@ show_reading_time: false
     <div class="item reveal"><span class="yr">2025 – present</span><h4>Pi-Thon Club, Co-Founder &amp; Vice President</h4><p>Coding and math workshops for 400+ students from underrepresented communities</p></div>
     <div class="item reveal"><span class="yr">2025 – present</span><h4>iGEM, Software Team</h4><p>Built wikis, applications and computational models for a gold-medal team</p></div>
     <div class="item reveal"><span class="yr">Ongoing</span><h4>Community</h4><p>4S Ranch Library volunteer (50+ hours) · All Girls STEM Society</p></div>
-    <div class="item reveal"><span class="yr">Ongoing</span><h4>San Diego Blood Bank, Volunteer</h4><p>30+ hours of volunteer service</p></div>
+    <div class="item reveal"><span class="yr">Ongoing</span><h4>San Diego Blood Bank, Volunteer</h4><p>40+ hours of volunteer service</p></div>
     <div class="item reveal">
       <span class="yr">Ongoing</span><h4>EKAL, Youth Ambassador</h4>
       <ul>
         <li>Emceed an event and raised over $30,000 to support digital literacy and education initiatives in rural villages across India</li>
-        <li>Won the 2026 Ekal Rising Seva Leader Award for my outreach efforts and dedication to Seva</li>
+        <li>Won the 2026 National Ekal Rising Seva Leader Award for my outreach efforts and dedication to Ekal</li>
       </ul>
     </div>
   </div>
@@ -156,7 +157,7 @@ show_reading_time: false
         <span class="big">Piano</span>
         <ul class="bullets">
           <li>Level 10 Graduate, Certificate of Merit</li>
-          <li>Certificate of Merit 5x State &amp; Convention Honors</li>
+          <li>Certificate of Merit 5-time State &amp; Convention Honors</li>
           <li>2026 American Virtuoso International Music Competition, Second Place</li>
           <li>TEDx Del Sur 2025 Performer</li>
         </ul>
